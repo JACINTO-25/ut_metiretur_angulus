@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Type Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Angle Type Detector</h1>
+    <p>Enter the angle in degrees:</p>
+    
+    <input type="number" id="angleInput" placeholder="Enter angle in degrees" />
+    <button onclick="determineAngleType()">Check Angle Type</button>
+
+    <div id="result"></div>
+
+    <script>
+        function determineAngleType() {
+            var angle = document.getElementById('angleInput').value;
+            var result = '';
+
+            if (angle < 0 || angle > 360) {
+                result = "Invalid angle! Angles should be between 0 and 360 degrees.";
+            } else if (angle == 0) {
+                result = "This is a Zero Degree Angle.";
+            } else if (angle == 90) {
+                result = "This is a Right Angle.";
+            } else if (angle == 180) {
+                result = "This is a Straight Angle.";
+            } else if (angle == 360) {
+                result = "This is a Full Rotation.";
+            } else if (angle < 90) {
+                result = "This is an Acute Angle.";
+            } else if (angle < 180) {
+                result = "This is an Obtuse Angle.";
+            } else {
+                result = "This is a Reflex Angle.";
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
